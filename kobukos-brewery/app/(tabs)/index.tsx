@@ -15,7 +15,7 @@ export default function HomeScreen() {
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#8da68c', dark: '#8da68c' }}
       headerImage={
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', width: '100%' }}>
           <Image
             source={require('@/assets/images/Kobuko.png')}
             style={styles.reactLogo}
@@ -28,6 +28,10 @@ export default function HomeScreen() {
                   Crafted with passion in Bandle City
                 </ThemedText>
           </View>
+          <Image
+            source={require('@/assets/images/Kobuko2.png')}
+            style={styles.reactLogo}
+          />
         </View>
       }
     >
