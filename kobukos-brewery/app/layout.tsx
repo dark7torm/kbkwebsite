@@ -55,7 +55,6 @@ export default function AppLayout() {
       </View>
       {/* Dashboard */}
       <ThemedView style={styles.dashboardContainer}>
-        <ThemedText type="title" style={{ marginBottom: 16 }}>Dashboard</ThemedText>
         <View style={styles.dashboardRow}>
           <TouchableOpacity
             style={styles.dashboardCard}
@@ -86,6 +85,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 24,
     padding: 16,
+    height: 100,
     backgroundColor: '#2e1503',
     shadowColor: '#808080',
     shadowOpacity: 0.1,
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   dashboardRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 16,
+    gap: 16
   },
   dashboardCard: {
     flex: 1,
