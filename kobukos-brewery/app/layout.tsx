@@ -8,104 +8,49 @@ export default function AppLayout() {
   const router = useRouter();
   return (
     <View style={{ flex: 1, backgroundColor: '#8da68c' }}>
-      {/* Header */}
-      <View style={{ flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start', width: '100%', height: 200, padding: 0 }}>
-        <View style={{ width: 500, height: '140%', overflow: 'hidden', marginLeft: 0, marginBottom: 0, borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}>
+      {/* Custom top nav bar */}
+      <View style={{ width: '100%', backgroundColor: '#430c03', height: 130, flexDirection: 'row', alignItems: 'center', paddingLeft: 0, paddingRight: 24, paddingTop: 0 }}>
+        <TouchableOpacity onPress={() => router.push('/')} activeOpacity={0.8}>
           <Image
-            source={require('@/assets/images/Kobuko.png')}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', left: 0, bottom: 0 }}
-            contentFit="cover"
+            source={require('@/assets/images/luckypaws_white.png')}
+            style={{ width: 150, height: 130, resizeMode: 'contain', marginLeft: 0, marginRight: 0 }}
           />
-        </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', position: 'relative', minHeight: 100, height: '100%' }}>
-          <Image
-            source={require('@/assets/images/luckypaws.png')}
-            style={{
-              position: 'absolute',
-              width: 510,
-              height: 500,
-              top: -150,
-              left: 0,
-              zIndex: -1,
-            }}
-            contentFit="cover"
-          />
-          <View style={{
-            paddingVertical: 0,
-            paddingHorizontal: 32,
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: 0,
-          }}>
-            <ThemedText type="title" style={{ color: '#5c2c09ff', fontSize: 75, fontFamily: 'Brush Script MT' }}>
-              Kobuko's Brewery
-            </ThemedText>
-            {/* <ThemedText style={{ color: '#5c2c09ff', fontSize: 40, marginTop: 10, fontFamily: 'Weddingday', fontStyle: 'italic' }}>
-              Crafted with passion in Bandle City
-            </ThemedText> */}
-          </View>
-        </View>
-        <View style={{ width: 500, height: '140%', overflow: 'hidden', marginLeft: 0, marginBottom: 0, borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}>
-          <Image
-            source={require('@/assets/images/Kobuko2.png')}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', left: 0, bottom: 0 }}
-            contentFit="cover"
-          />
+        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 36 }}>
+          <TouchableOpacity onPress={() => router.push('/roster')}>
+            <ThemedText style={{ color: '#fff', fontSize: 28, fontFamily: 'System', fontWeight: '400' }}>Roster</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => router.navigate('/')}>
+            <ThemedText style={{ color: '#fff', fontSize: 28, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => router.navigate('/')}>
+            <ThemedText style={{ color: '#fff', fontSize: 28, fontFamily: 'System', fontWeight: '400' }}>Calendar</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => router.navigate('/')}>
+            <ThemedText style={{ color: '#fff', fontSize: 28, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
+          </TouchableOpacity>
         </View>
       </View>
-      {/* Dashboard */}
-      <ThemedView style={styles.dashboardContainer}>
-        <View style={styles.dashboardRow}>
-          <TouchableOpacity
-            style={styles.dashboardCard}
-            onPress={() => router.push('/')}
-            activeOpacity={0.8}
-          >
-            <ThemedText type="subtitle">Home</ThemedText>
-            <ThemedText>Welcome to the Home section!</ThemedText>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dashboardCard}
-            onPress={() => router.push('/roster')}
-            activeOpacity={0.8}
-          >
-            <ThemedText type="subtitle">Roster</ThemedText>
-            <ThemedText>Our current roster organized by game.</ThemedText>
-          </TouchableOpacity>
-        </View>
-      </ThemedView>
+      
       {/* Page content */}
       <Slot />
+      {/* Bottom left and right images, fixed to bottom of page */}
+      <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
+        <Image
+          source={require('@/assets/images/Kobuko.png')}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          contentFit="cover"
+        />
+      </View>
+      <View style={{ position: 'absolute', right: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
+        <Image
+          source={require('@/assets/images/Kobuko2.png')}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          contentFit="cover"
+        />
+      </View>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  dashboardContainer: {
-    marginTop: 24,
-    marginBottom: 24,
-    padding: 16,
-    height: 100,
-    backgroundColor: '#2e1503',
-    shadowColor: '#808080',
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    shadowOffset: { width: 0, height: 2 },
-  },
-  dashboardRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 16
-  },
-  dashboardCard: {
-    flex: 1,
-    backgroundColor: 'rgba(78, 57, 41, 1)',
-    borderRadius: 12,
-    padding: 16,
-    alignItems: 'flex-start',
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    shadowOffset: { width: 0, height: 1 },
-  },
-});
+// No dashboard styles needed
