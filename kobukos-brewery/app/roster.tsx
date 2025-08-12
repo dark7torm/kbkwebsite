@@ -8,30 +8,10 @@ import { useRouter } from 'expo-router';
 export default function RosterScreen() {
   const router = useRouter();
   return (
-    <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#8da68c' }}>
       <ThemedText type="title">Roster Screen</ThemedText>
       <ThemedText>This is where the roster information will be displayed.</ThemedText>
-      <ThemedView style={styles.dashboardContainer}>
-              <ThemedText type="title" style={{ marginBottom: 16 }}>Dashboard</ThemedText>
-              <View style={styles.dashboardRow}>
-                <TouchableOpacity
-                  style={styles.dashboardCard}
-                  onPress={() => router.push('/')}
-                  activeOpacity={0.8}
-                >
-                  <ThemedText type="subtitle">Home</ThemedText>
-                  <ThemedText>Welcome to the Home section!</ThemedText>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.dashboardCard}
-                  onPress={() => router.push('/roster')}
-                  activeOpacity={0.8}
-                >
-                  <ThemedText type="subtitle">Roster</ThemedText>
-                  <ThemedText>Our current roster organized by game.</ThemedText>
-                </TouchableOpacity>
-              </View>
-            </ThemedView>
+      
     </ThemedView>
     
   );

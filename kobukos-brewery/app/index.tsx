@@ -7,76 +7,11 @@ import { useRouter } from 'expo-router';
 export default function HomeScreen() {
   const router = useRouter();
   return (
-    <View style={{ flex: 1, backgroundColor: '#8da68c' }}>
-      {/* Header */}
-      <View style={{ flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start', width: '100%', height: 200, padding: 0 }}>
-        <View style={{ width: 500, height: '140%', overflow: 'hidden', marginLeft: 0, marginBottom: 0, borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}>
-          <Image
-            source={require('@/assets/images/Kobuko.png')}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', left: 0, bottom: 0 }}
-            contentFit="cover"
-          />
-        </View>
-        <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', position: 'relative', minHeight: 100, height: '100%' }}>
-          <Image
-            source={require('@/assets/images/luckypaws.png')}
-            style={{
-              position: 'absolute',
-              width: 510,
-              height: 500,
-              top: -150,
-              left: 0,
-              zIndex: -1,
-            }}
-            contentFit="cover"
-          />
-          <View style={{
-            paddingVertical: 0,
-            paddingHorizontal: 32,
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: 0,
-            
-          }}>
-            <ThemedText type="title" style={{ color: '#5c2c09ff', fontSize: 75, fontFamily: 'Brush Script MT' }}>
-              Kobuko's Brewery
-            </ThemedText>
-            {/* <ThemedText style={{ color: '#5c2c09ff', fontSize: 40, marginTop: 10, fontFamily: 'Weddingday', fontStyle: 'italic' }}>
-              Crafted with passion in Bandle City
-            </ThemedText> */}
-          </View>
-        </View>
-        <View style={{ width: 500, height: '140%', overflow: 'hidden', marginLeft: 0, marginBottom: 0, borderBottomLeftRadius: 0, borderTopLeftRadius: 0 }}>
-          <Image
-            source={require('@/assets/images/Kobuko2.png')}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', left: 0, bottom: 0 }}
-            contentFit="cover"
-          />
-        </View>
-      </View>
-      {/* Dashboard */}
-      <ThemedView style={styles.dashboardContainer}>
-        <ThemedText type="title" style={{ marginBottom: 16 }}>Dashboard</ThemedText>
-        <View style={styles.dashboardRow}>
-          <TouchableOpacity
-            style={styles.dashboardCard}
-            onPress={() => router.push('/')}
-            activeOpacity={0.8}
-          >
-            <ThemedText type="subtitle">Home</ThemedText>
-            <ThemedText>Welcome to the Home section!</ThemedText>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.dashboardCard}
-            onPress={() => router.push('/roster')}
-            activeOpacity={0.8}
-          >
-            <ThemedText type="subtitle">Roster</ThemedText>
-            <ThemedText>Our current roster organized by game.</ThemedText>
-          </TouchableOpacity>
-        </View>
-      </ThemedView>
-    </View>
+    <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#8da68c' }}>
+      <ThemedText type="title">Home Screen</ThemedText>
+      <ThemedText>Welcome to Kobuko's Brewery!</ThemedText>
+      
+    </ThemedView>
   );
 }
 
