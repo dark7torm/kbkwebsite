@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import {Tweet} from 'react-tweet'
+import { Tweet } from 'react-tweet'
 
-const SIDEBAR_WIDTH = 350;
+const SIDEBAR_WIDTH = 300;
 
 export default function Smadgehugers() {
     return (
@@ -12,15 +12,22 @@ export default function Smadgehugers() {
             {/* Main blog content */}
             <ScrollView style={styles.blogContent} contentContainerStyle={styles.blogContentInner}>
                 <Text style={styles.title}>Smadgehugers</Text>
-                <Text style={styles.subtitle}>Manager, League of Legends</Text>
+                <View style={styles.divider} />
+                <Text style={styles.subtitle}>Manager, Design Lead, and Glue Guy for Kobuko's Brewery </Text>
                 <Text style={styles.paragraph}>
-                    Welcome to the Smadgehugers profile! This is a sample blog-style page. You can add long-form content here, such as stories, updates, or personal insights. The content area is scrollable, so you can write as much as you want.
+                    Generational scorer who brings it on ganking and may win MVP.
                 </Text>
                 <Text style={styles.paragraph}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque.
+                    Smadgehugers won his first MVP, led the league in KP,
+                    and was the best player on a 2-win team that made the KISA League Tournament Group Stage.
+                    This was, by just about any measure, one of the most impressive individual
+                    campaigns any jungler has ever had. Now, it raises a simple question: At only 
+                    20 years old, how many more seasons can Smadgehugers submit at or near 
+                    this level? Odds are, we haven’t even seen the best he has to offer—a terrifying 
+                    predicament for every enemy jungler that already showed there’s no way to slow him down.
                 </Text>
                 <Text style={styles.paragraph}>
-                    More blog content goes here. Add images, links, or anything else you want to share with your audience.
+                    kappa bungus
                 </Text>
             </ScrollView>
             {/* Sidebar for Twitter embed */}
@@ -48,22 +55,33 @@ const styles = StyleSheet.create({
         backgroundColor: '#8da68c',
     },
     blogContentInner: {
-        paddingBottom: 64,
+        paddingBottom: 300,
     },
     title: {
-        fontSize: 32,
+        fontSize: 100,
         fontWeight: 'bold',
+        fontFamily: 'Roboto',
         marginBottom: 8,
+        color: '#2d3d2c',
+        textAlign: 'center',
     },
     subtitle: {
         fontSize: 20,
         fontWeight: '600',
         marginBottom: 16,
+        color: '#2d3d2c',
+    },
+    divider: {
+        height: 2,
+        backgroundColor: '#2d3d2c',
+        marginVertical: 12,
+        width: '100%',
     },
     paragraph: {
         fontSize: 16,
         marginBottom: 16,
         lineHeight: 24,
+        color: '#2d3d2c',
     },
     sidebar: {
         width: SIDEBAR_WIDTH,
