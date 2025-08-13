@@ -28,23 +28,30 @@ export default function LolRoster() {
 
   return (
     <View style={styles.container}>
+      <ThemedText type="title" style={styles.pageTitle}>Roster</ThemedText>
       <View style={styles.listContainer}>
         <View style={styles.listColumn}>
           <ThemedText type="subtitle" style={styles.listTitle}>Players</ThemedText>
             {playerNames.map((name, idx) => (
             <TouchableOpacity key={name} style={styles.nameButton} activeOpacity={0.7} onPress={() => {router.push(`/roster/lol/${name}` as any)}}>
-                <ThemedText style={styles.listItem}>
-                  {playerRoles[idx]}: {name}
+                <ThemedText style={styles.playerName}>
+                  {name}
+                </ThemedText>
+                <ThemedText style={styles.playerRole}>
+                  {playerRoles[idx]}
                 </ThemedText>
             </TouchableOpacity>
           ))}
         </View>
         <View style={styles.listColumn}>
-          <ThemedText type="subtitle" style={styles.listTitle}>Coaching / Management</ThemedText>
+          <ThemedText type="subtitle" style={styles.listTitle}>Staff</ThemedText>
           {managementNames.map((name, idx) => (
             <TouchableOpacity key={name} style={styles.nameButton} activeOpacity={0.7} onPress={() => {router.push(`/roster/lol/${name}` as any)}}>
-              <ThemedText style={styles.listItem}>
-                {managementRoles[idx]}: {name}
+              <ThemedText style={styles.playerName}>
+                {name}
+              </ThemedText>
+              <ThemedText style={styles.playerRole}>
+                {managementRoles[idx]}
               </ThemedText>
             </TouchableOpacity>
           ))}
@@ -79,16 +86,36 @@ const styles = StyleSheet.create({
   },
   listTitle: {
     marginBottom: 12,
+    fontSize: 28,
     fontWeight: 'bold',
+    fontFamily: 'System',
+    color: '#2d3d2c',
   },
-  listItem: {
-    fontSize: 18,
+  pageTitle: {
+    fontSize: 100,
+    fontWeight: 'bold',
+    fontFamily: 'System',
+    color: '#2d3d2c',
+    textAlign: 'center',
+    marginBottom: 100,
+  },
+  playerName: {
+    fontSize: 20,
+    fontWeight: '600',
+    fontFamily: 'System',
+    color: '#2d3d2c',
+  },
+  playerRole: {
+    fontSize: 14,
+    fontFamily: 'System',
+    color: '#2d3d2c',
+    opacity: 0.8,
   },
   nameButton: {
-    marginBottom: 8,
+    marginBottom: 12,
     borderRadius: 6,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
 });
