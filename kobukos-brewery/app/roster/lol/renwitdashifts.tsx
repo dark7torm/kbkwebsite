@@ -25,7 +25,9 @@ export default function renwitdashifts() {
             </ScrollView>
             {/* Sidebar for Twitter embed */}
             <View style={styles.sidebar}>
-                <Tweet id="1890884734294565190" />
+                    <View style={{ width: 400, marginLeft: 32, zIndex: 10, position: 'relative' }}>
+                        <Tweet id="1890884734294565190" />
+                    </View>
             </View>
         </View>
     );
@@ -69,18 +71,21 @@ const styles = StyleSheet.create({
         borderLeftWidth: 1,
         borderLeftColor: '#697e68ff',
         padding: 0,
+        zIndex: 1,
         alignItems: 'center',
     },
     sidebarTitle: {
         fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 12,
-        color: '#fff'
+        color: '#fff',
+        zIndex: 1
     },
     twitterEmbed: {
         width: SIDEBAR_WIDTH - 32,
         height: 500,
         borderRadius: 8,
         overflow: 'hidden',
+        zIndex: 1
     },
 });

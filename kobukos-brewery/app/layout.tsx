@@ -1,4 +1,5 @@
 import { Slot, useRouter } from 'expo-router';
+import { usePathname } from 'expo-router';
 import { Image } from 'expo-image';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
@@ -6,6 +7,8 @@ import { ThemedView } from '@/components/ThemedView';
 
 export default function AppLayout() {
   const router = useRouter();
+  const pathname = usePathname();
+  const isRosterPage = pathname?.startsWith('/roster');
   return (
     <View style={{ flex: 1, backgroundColor: '#8da68c' }}>
       {/* Custom top nav bar */}
@@ -35,20 +38,22 @@ export default function AppLayout() {
       {/* Page content */}
       <Slot />
       {/* Bottom left and right images, fixed to bottom of page */}
-      <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
+  <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 0 }} pointerEvents="none">
         <Image
           source={require('@/assets/images/Kobuko.png')}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           contentFit="cover"
         />
       </View>
-      <View style={{ position: 'absolute', right: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
-        <Image
-          source={require('@/assets/images/Kobuko2.png')}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          contentFit="cover"
-        />
-      </View>
+  {!isRosterPage && (
+    <View style={{ position: 'absolute', right: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 0 }} pointerEvents="none">
+      <Image
+        source={require('@/assets/images/Kobuko2.png')}
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        contentFit="cover"
+      />
+    </View>
+  )}
     </View>
   );
 }
