@@ -44,7 +44,7 @@ export default function AppLayout() {
       {/* Page content */}
       <Slot />
       {/* Bottom left and right images, fixed to bottom of page */}
-  <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 0 }} pointerEvents="none">
+  {/* <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 0 }} pointerEvents="none"> */}
       {/* <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
         <Image
           source={require('@/assets/images/Kobuko.png')}
@@ -71,6 +71,7 @@ export default function AppLayout() {
       </View> */}
     </View>
   );
+
 }
 
-// No dashboard styles needed
+
