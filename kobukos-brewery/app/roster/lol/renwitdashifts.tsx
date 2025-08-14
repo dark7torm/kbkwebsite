@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import {Tweet} from 'react-tweet'
+import { Tweet } from 'react-tweet'
 
-const SIDEBAR_WIDTH = 350;
+const SIDEBAR_WIDTH = 368;
 
 export default function renwitdashifts() {
     return (
@@ -12,15 +12,25 @@ export default function renwitdashifts() {
             {/* Main blog content */}
             <ScrollView style={styles.blogContent} contentContainerStyle={styles.blogContentInner}>
                 <Text style={styles.title}>renwitdashifts</Text>
-                <Text style={styles.subtitle}>Coach, League of Legends</Text>
+                <View style={styles.divider} />
+                <Text style={styles.subtitle}>Coach, Player, Shiftlord </Text>
                 <Text style={styles.paragraph}>
-                    Welcome to the renwitdashifts profile! This is a sample blog-style page. You can add long-form content here, such as stories, updates, or personal insights. The content area is scrollable, so you can write as much as you want.
+                    The shiftiest player on the team, ren is known to be the wildcard on the roster.
                 </Text>
                 <Text style={styles.paragraph}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque. Etiam euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque.
+                    Whether it was drafting the perfect counter to the enemies or filling in with his godlike Ezreal, 
+                    renwitdashifts is the brains of the operation here at Kobuko's Brewery. When going gets tough, ren
+                    always manages to move the team forward with encouraging stories of his own experience with redemption.
+                    Known to outperform KBK's toplaner Jisung in solo queue, ren shows that he is a vital piece of the team
+                    both on and off the Rift. Perfect draft reads, counterpicks, and a deep understanding of the game make
+                    this team's head coach in contention for the best in NACL OQs. While OQs are off season, in shifty fashion, ren
+                    competes in Super Smash Bros. Melee, where he is Boston's shiftiest Falco and member of the decorated duo ShiftBoom,
+                    alongside fellow Boston smasher Cheezboom. 
+
                 </Text>
                 <Text style={styles.paragraph}>
-                    More blog content goes here. Add images, links, or anything else you want to share with your audience.
+                    In a world full of shiftless players, renwitdashifts stands
+                    alone at the top.
                 </Text>
             </ScrollView>
             {/* Sidebar for Twitter embed */}
@@ -48,44 +58,53 @@ const styles = StyleSheet.create({
         backgroundColor: '#8da68c',
     },
     blogContentInner: {
-        paddingBottom: 64,
+        paddingBottom: 300,
     },
     title: {
-        fontSize: 32,
+        fontSize: 100,
         fontWeight: 'bold',
+        fontFamily: 'Roboto',
         marginBottom: 8,
+        color: '#2d3d2c',
+        // textAlign: 'center',
     },
     subtitle: {
         fontSize: 20,
         fontWeight: '600',
         marginBottom: 16,
+        color: '#2d3d2c',
+    },
+    divider: {
+        height: 2,
+        backgroundColor: '#2d3d2c',
+        marginVertical: 12,
+        width: '100%',
     },
     paragraph: {
         fontSize: 16,
         marginBottom: 16,
         lineHeight: 24,
+        color: '#2d3d2c',
     },
     sidebar: {
         width: SIDEBAR_WIDTH,
+        height: '100%',
         backgroundColor: '#697e68ff',
         borderLeftWidth: 1,
         borderLeftColor: '#697e68ff',
         padding: 0,
-        zIndex: 1,
         alignItems: 'center',
     },
     sidebarTitle: {
         fontSize: 18,
         fontWeight: 'bold',
         marginBottom: 12,
-        color: '#fff',
-        zIndex: 1
+        color: '#fff'
     },
     twitterEmbed: {
         width: SIDEBAR_WIDTH - 32,
         height: 500,
         borderRadius: 8,
         overflow: 'hidden',
-        zIndex: 1
     },
 });
