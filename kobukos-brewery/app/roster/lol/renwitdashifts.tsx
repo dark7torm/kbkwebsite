@@ -19,8 +19,7 @@ export default function renwitdashifts() {
                 </Text>
                 <Text style={styles.paragraph}>
                     Whether it was drafting the perfect counter to the enemies or filling in with his godlike Ezreal, 
-                    renwitdashifts is the brains of the operation here at Kobuko's Brewery. When going gets tough, ren
-                    always manages to move the team forward with encouraging stories of his own experience with redemption.
+                    renwitdashifts is the brains of the operation here at Kobuko's Brewery.
                     Known to outperform KBK's toplaner Jisung in solo queue, ren shows that he is a vital piece of the team
                     both on and off the Rift. Perfect draft reads, counterpicks, and a deep understanding of the game make
                     this team's head coach in contention for the best in NACL OQs. While OQs are off season, in shifty fashion, ren
