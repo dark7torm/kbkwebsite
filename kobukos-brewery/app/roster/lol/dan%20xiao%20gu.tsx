@@ -6,12 +6,12 @@ import { Tweet } from 'react-tweet'
 
 const SIDEBAR_WIDTH = 368;
 
-export default function jisung() {
+export default function danxiaogu() {
     return (
         <View style={styles.container}>
             {/* Main blog content */}
             <ScrollView style={styles.blogContent} contentContainerStyle={styles.blogContentInner}>
-                <Text style={styles.title}>Jisung</Text>
+                <Text style={styles.title}>Dan Xiao Gu</Text>
                 <View style={styles.divider} />
                 <Text style={styles.subtitle}>Toplaner and Wendy's #1 Customer </Text>
                 <Text style={styles.paragraph}>

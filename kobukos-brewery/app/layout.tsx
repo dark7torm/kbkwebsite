@@ -4,12 +4,23 @@ import { Image } from 'expo-image';
 import { StyleSheet, TouchableOpacity, View, Linking } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import ModalDropdown from 'react-native-modal-dropdown';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function AppLayout() {
   const router = useRouter();
   const pathname = usePathname();
   const isRosterPage = pathname?.startsWith('/roster');
+
+  const gameRoutes: { [key: string]: string } = {
+    'League Of Legends': "/roster/lol",
+    'Super Smash Brothers Melee': '/roster/ssbm'
+  };
+
+  const handleSelect = (index: string, value: string) => {
+    router.push(gameRoutes[value] as any);
+  };
+
   return (
     <View style={{ flex: 1, backgroundColor: '#8da68c' }}>
       {/* Custom top nav bar */}
@@ -22,8 +33,34 @@ export default function AppLayout() {
             />
           </TouchableOpacity>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 36 }}>
-            <TouchableOpacity onPress={() => router.push('/roster')}>
-              <ThemedText style={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Roster</ThemedText>
+            <TouchableOpacity>
+              <ModalDropdown
+                defaultValue='Roster'
+                options={['League Of Legends', 'Super Smash Brothers Melee']}
+                onSelect={handleSelect}
+                showsVerticalScrollIndicator={false}
+                renderButtonText={() => 'Roster'}
+                textStyle={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}
+                dropdownStyle={{ 
+                  width: 300, 
+                  height: 'auto', 
+                  backgroundColor: '#430c03', 
+                  borderRadius: 8,
+                  marginTop: 8,
+                  padding: 8,
+                }}
+                dropdownTextStyle={{ 
+                  color: '#fff', 
+                  fontSize: 20, 
+                  fontFamily: 'System',
+                  backgroundColor: '#430c03',
+                  paddingVertical: 12,
+                  paddingHorizontal: 16
+                }}
+                dropdownTextHighlightStyle={{ 
+                  color: '#e0cba8' 
+                }}
+              />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/')}>
               <ThemedText style={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>

@@ -6,32 +6,31 @@ import { Tweet } from 'react-tweet'
 
 const SIDEBAR_WIDTH = 368;
 
-export default function jisung() {
+export default function ABee() {
     return (
         <View style={styles.container}>
             {/* Main blog content */}
             <ScrollView style={styles.blogContent} contentContainerStyle={styles.blogContentInner}>
-                <Text style={styles.title}>Jisung</Text>
+                <Text style={styles.title}>A Bee</Text>
                 <View style={styles.divider} />
-                <Text style={styles.subtitle}>Toplaner and Wendy's #1 Customer </Text>
+                <Text style={styles.subtitle}>Literally just a Bee </Text>
                 <Text style={styles.paragraph}>
-                    In eternal pursuite of the NJuzz, Jisung takes time away from finding the love of his life to play toplane for Kobuko's Brewery.
+                    A bee.
                 </Text>
                 <Text style={styles.paragraph}>
-                    Our favorite 4 for 4 enthusiast, Jisung is Kobuko's Brewery's toplaner and resident Wendy's connoisseur. 
-                    Known for his prowess against top talent like Fudge and Niles, Jisung is no stranger to top talent. 
-                    When he isn't terrorizing the 9-5ers in the depths of low diamond, he uses his spare time to scout the "fine shyts" on Hinge. 
-                    His love life methods are eerily similar to his in-game philosophy, following the "Mamba Mentality", oftentimes stating that
-                    "Hard work is more valuable than talent." 
+                    KBK's support, A Bee, come from humble beginnings. Born in ABG Heaven, hailing from Vaughn, BC, A Bee's rough childhood 
+                    led him to the gooner lifestyle. While known for his side hustle as a motivational speaker, A Bee still struggles with 
+                    gooner materials at times with struggles relapsing into his old habits. Despite this, Kobuko's Brewery is proudly supporting 
+                    our favorite bee through tough times and even paying for his AAA sessions. 
                 </Text>
                 <Text style={styles.paragraph}>
-                    Ladies, please contact us if you are interested in Jisung. He might even pay for dinner if he has money that day.
+                    Addiction is a disease, not a choice.
                 </Text>
             </ScrollView>
             {/* Sidebar for Twitter embed */}
             <View style={styles.sidebar}>
                     <View style={{ width: 400, marginLeft: 32, zIndex: 10, position: 'relative' }}>
-                        <Tweet id="1890906236637384713" />
+                        <Tweet id="1895633742309572610" />
                     </View>
             </View>
         </View>

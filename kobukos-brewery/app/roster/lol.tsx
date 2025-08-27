@@ -1,8 +1,17 @@
 import { ThemedText } from '@/components/ThemedText';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
+const managementRoles = [
+  'Coach',
+  'Manager',
+];
+const managementNames = [
+  'renwitdashifts',
+  'Smadgehugers',
+];
+
 export default function LolRoster() {
-    const router = useRouter();
+  const router = useRouter();
   const playerRoles = [
     'Toplane',
     'Jungle',
@@ -17,23 +26,24 @@ export default function LolRoster() {
     'dan xiao gu',
     'A Bee',
   ];
-  const managementRoles = [
-    'Coach',
-    'Manager',
-  ];
-  const managementNames = [
-    'renwitdashifts',
-    'Smadgehugers',
-  ];
+
+  const getEncodedRoute = (name: string) => {
+    return `/roster/lol/${encodeURIComponent(name)}`;
+  };
 
   return (
     <View style={styles.container}>
-      <ThemedText type="title" style={styles.pageTitle}>Roster</ThemedText>
+      {/* ...existing code... */}
       <View style={styles.listContainer}>
         <View style={styles.listColumn}>
           <ThemedText type="subtitle" style={styles.listTitle}>Players</ThemedText>
             {playerNames.map((name, idx) => (
-            <TouchableOpacity key={name} style={styles.nameButton} activeOpacity={0.7} onPress={() => {router.push(`/roster/lol/${name}` as any)}}>
+            <TouchableOpacity 
+              key={name} 
+              style={styles.nameButton} 
+              activeOpacity={0.7} 
+              onPress={() => router.push(getEncodedRoute(name) as any)}
+            >
                 <ThemedText style={styles.playerName}>
                   {name}
                 </ThemedText>

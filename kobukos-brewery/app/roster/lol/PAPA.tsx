@@ -6,7 +6,7 @@ import { Tweet } from 'react-tweet'
 
 const SIDEBAR_WIDTH = 368;
 
-export default function renwitdashifts() {
+export default function papa() {
     return (
         <View style={styles.container}>
             {/* Main blog content */}
