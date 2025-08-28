@@ -24,11 +24,11 @@ export default function AppLayout() {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'transparent' }}>
-      
+      {/* Background gradient */}
       <LinearGradient
        colors={['#646139', '#8da68c', '#EAFBBB']}
-      start={{x: 0.50, y: 1.00}}
-      end={{x: 0.50, y: 0.00}}
+    start={{x: 0.50, y: 1.00}}
+    end={{x: 0.50, y: 0.00}}
         style={{
           position: 'absolute',
           top: 0,
@@ -55,7 +55,7 @@ export default function AppLayout() {
                 onSelect={handleSelect}
                 showsVerticalScrollIndicator={false}
                 renderButtonText={() => 'Roster'}
-                textStyle={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}
+                textStyle={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}
                 dropdownStyle={{ 
                   width: 300, 
                   height: 'auto', 
@@ -65,7 +65,7 @@ export default function AppLayout() {
                   padding: 8,
                 }}
                 dropdownTextStyle={{ 
-                  color: '#fff', 
+                  color: '#2d3d2c', 
                   fontSize: 20, 
                   fontFamily: 'System',
                   backgroundColor: '#430c03',
@@ -78,18 +78,18 @@ export default function AppLayout() {
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Calendar</ThemedText>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Calendar</ThemedText>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#fff', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
             </TouchableOpacity>
           </View>
         </View>
         <TouchableOpacity onPress={() => Linking.openURL('https://x.com/KOBUKOS_BREWERY')} activeOpacity={0.8}>
-          <FontAwesome name="twitter" size={28} color="#fff" />
+          <FontAwesome name="twitter" size={28} color="#2d3d2c" />
         </TouchableOpacity>
       </View>
       

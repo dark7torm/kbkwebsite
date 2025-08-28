@@ -94,13 +94,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   mainTitle: {
-    color: '#5c2c09ff',
+    color: '#2d3d2c',
     fontSize: 75,
     fontFamily: 'Brush Script MT',
     textAlign: 'center',
   },
   subtitle: {
-    color: '#5c2c09ff',
+    color: '#2d3d2c',
     fontSize: 37,
     marginTop: 20,
     fontFamily: 'Palisade',
@@ -114,13 +114,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   section: {
-    backgroundColor: 'rgba(92, 44, 9, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     padding: 20,
     marginVertical: 10,
     borderRadius: 10,
   },
   sectionText: {
-    color: '#5c2c09ff',
+    color: '#2d3d2c',
     fontSize: 24,
     textAlign: 'center',
   },
