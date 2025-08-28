@@ -20,7 +20,7 @@ export default function SSBMRoster() {
 
   return (
     <View style={styles.container}>
-      {/* ...existing code... */}
+      
       <View style={styles.listContainer}>
         <View style={styles.listColumn}>
           <ThemedText type="subtitle" style={styles.listTitle}>Players</ThemedText>

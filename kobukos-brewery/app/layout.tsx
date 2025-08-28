@@ -6,6 +6,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { FontAwesome } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function AppLayout() {
   const router = useRouter();
@@ -22,9 +23,23 @@ export default function AppLayout() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#8da68c' }}>
+    <View style={{ flex: 1, backgroundColor: 'transparent' }}>
+      
+      <LinearGradient
+       colors={['#646139', '#8da68c', '#EAFBBB']}
+      start={{x: 0.50, y: 1.00}}
+      end={{x: 0.50, y: 0.00}}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
+      />
+
       {/* Custom top nav bar */}
-      <View style={{ width: '100%', backgroundColor: '#430c03', height: 100, flexDirection: 'row', alignItems: 'center', paddingLeft: 0, paddingRight: 24, paddingTop: 0, justifyContent: 'space-between' }}>
+      <View style={styles.header}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <TouchableOpacity onPress={() => router.push('/')} activeOpacity={0.8}>
             <Image
@@ -78,37 +93,38 @@ export default function AppLayout() {
         </TouchableOpacity>
       </View>
       
-      {/* Page content */}
-      <Slot />
-      {/* Bottom left and right images, fixed to bottom of page */}
-  {/* <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 0 }} pointerEvents="none"> */}
-      {/* <View style={{ position: 'absolute', left: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
-        <Image
-          source={require('@/assets/images/Kobuko.png')}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          contentFit="cover"
-        />
+      {/* Page content wrapper with padding */}
+      <View style={styles.contentContainer}>
+        {/* Page content */}
+        <Slot />
       </View>
-  {!isRosterPage && (
-    <View style={{ position: 'absolute', right: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 0 }} pointerEvents="none">
-      <Image
-        source={require('@/assets/images/Kobuko2.png')}
-        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-        contentFit="cover"
-      />
-    </View>
-  )}
-      </View> */}
-      {/* <View style={{ position: 'absolute', right: 0, bottom: 0, width: 250, height: 200, overflow: 'hidden', zIndex: 100 }} pointerEvents="none">
-        <Image
-          source={require('@/assets/images/Kobuko2.png')}
-          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          contentFit="cover"
-        />
-      </View> */}
     </View>
   );
-
 }
+
+const styles = StyleSheet.create({
+  header: {
+    width: '100%',
+    height: 100,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 0,
+    paddingRight: 24,
+    paddingTop: 0,
+    justifyContent: 'space-between',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
+    backgroundColor: 'transparent'
+  },
+  contentContainer: {
+    flex: 1,
+    marginTop: 100, // This matches the header height
+    width: '100%',
+    height: '100%',
+  },
+});
 
 
