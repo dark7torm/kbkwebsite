@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Tweet } from 'react-tweet'
 
-const SIDEBAR_WIDTH = 368;
+const SIDEBAR_WIDTH = 450;
 
 export default function ABee() {
     return (

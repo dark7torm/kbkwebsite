@@ -4,7 +4,7 @@ import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Tweet } from 'react-tweet'
 
-const SIDEBAR_WIDTH = 368;
+const SIDEBAR_WIDTH = 450;
 
 export default function jisung() {
     return (
@@ -19,7 +19,7 @@ export default function jisung() {
                 </Text>
                 <Text style={styles.paragraph}>
                     Our favorite 4 for 4 enthusiast, Jisung is Kobuko's Brewery's toplaner and resident Wendy's connoisseur. 
-                    Known for his prowess against top talent like Fudge and Niles, Jisung is no stranger to top talent. 
+                    Known for his prowess against players like Fudge and Niles, Jisung is no stranger to top talent. 
                     When he isn't terrorizing the 9-5ers in the depths of low diamond, he uses his spare time to scout the "fine shyts" on Hinge. 
                     His love life methods are eerily similar to his in-game philosophy, following the "Mamba Mentality", oftentimes stating that
                     "Hard work is more valuable than talent." 
@@ -44,13 +44,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: '100%',
-        backgroundColor: '#8da68c',
+        backgroundColor: 'transparent',
     },
     blogContent: {
         flex: 1,
         paddingHorizontal: 32,
         paddingVertical: 24,
-        backgroundColor: '#8da68c',
+        backgroundColor: 'transparent',
     },
     blogContentInner: {
         paddingBottom: 300,
@@ -84,9 +84,9 @@ const styles = StyleSheet.create({
     sidebar: {
         width: SIDEBAR_WIDTH,
         height: '100%',
-        backgroundColor: '#697e68ff',
+        backgroundColor: 'transparent',
         borderLeftWidth: 1,
-        borderLeftColor: '#697e68ff',
+        borderLeftColor: 'transparent',
         padding: 0,
         alignItems: 'center',
     },

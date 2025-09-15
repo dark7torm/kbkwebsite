@@ -26,7 +26,7 @@ export default function AppLayout() {
     <View style={{ flex: 1, backgroundColor: 'transparent' }}>
       {/* Background gradient */}
       <LinearGradient
-       colors={['#646139', '#8da68c', '#EAFBBB']}
+       colors={['#b6b065ff', '#8da68c', '#EAFBBB']}
     start={{x: 0.50, y: 1.00}}
     end={{x: 0.50, y: 0.00}}
         style={{
@@ -59,23 +59,28 @@ export default function AppLayout() {
                 dropdownStyle={{ 
                   width: 300, 
                   height: 'auto', 
-                  backgroundColor: '#430c03', 
+                  backgroundColor: 'transparent', 
                   borderRadius: 8,
                   marginTop: 8,
-                  padding: 8,
+                  borderWidth: 1,
+                  
                 }}
                 dropdownTextStyle={{ 
                   color: '#2d3d2c', 
                   fontSize: 20, 
                   fontFamily: 'System',
-                  backgroundColor: '#430c03',
+                  backgroundColor: 'transparent',
                   paddingVertical: 12,
                   paddingHorizontal: 16
                 }}
                 dropdownTextHighlightStyle={{ 
-                  color: '#e0cba8' 
+                  color: '#e0cba8',
+                  backgroundColor: '#2d3d2c'
                 }}
               />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => router.navigate('/')}>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Shop</ThemedText>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/')}>
               <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>
