@@ -7,6 +7,7 @@ import { ThemedView } from '@/components/ThemedView';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { FontAwesome } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import GooeyNav from '@/components/GooeyNav';
 
 export default function AppLayout() {
   const router = useRouter();
@@ -21,6 +22,14 @@ export default function AppLayout() {
   const handleSelect = (index: string, value: string) => {
     router.push(gameRoutes[value] as any);
   };
+
+  const navItems = [
+    { label: 'Roster', onPress: () => router.push('/roster/lol') },
+    { label: 'Shop', onPress: () => router.navigate('/') },
+    { label: 'Games', onPress: () => router.navigate('/') },
+    { label: 'Calendar', onPress: () => router.navigate('/') },
+    { label: 'Kobuko Art Museum', onPress: () => router.navigate('/') },
+  ];
 
   return (
     <View style={{ flex: 1, backgroundColor: 'transparent' }}>
@@ -40,59 +49,28 @@ export default function AppLayout() {
 
       {/* Custom top nav bar */}
       <View style={styles.header}>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => router.push('/')} activeOpacity={0.8}>
-            <Image
-              source={require('@/assets/images/luckypaws_white.png')}
-              style={{ width: 150, height: 130, resizeMode: 'contain', marginLeft: -15, marginRight: 0 }}
-            />
-          </TouchableOpacity>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 36 }}>
-            <TouchableOpacity>
-              <ModalDropdown
-                defaultValue='Roster'
-                options={['League Of Legends', 'Super Smash Brothers Melee']}
-                onSelect={handleSelect}
-                showsVerticalScrollIndicator={false}
-                renderButtonText={() => 'Roster'}
-                textStyle={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}
-                dropdownStyle={{ 
-                  width: 300, 
-                  height: 'auto', 
-                  backgroundColor: 'transparent', 
-                  borderRadius: 8,
-                  marginTop: 8,
-                  borderWidth: 1,
-                  
-                }}
-                dropdownTextStyle={{ 
-                  color: '#2d3d2c', 
-                  fontSize: 20, 
-                  fontFamily: 'System',
-                  backgroundColor: 'transparent',
-                  paddingVertical: 12,
-                  paddingHorizontal: 16
-                }}
-                dropdownTextHighlightStyle={{ 
-                  color: '#e0cba8',
-                  backgroundColor: '#2d3d2c'
-                }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Shop</ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Calendar</ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <TouchableOpacity onPress={() => router.push('/')} activeOpacity={0.8}>
+          <Image
+            source={require('@/assets/images/luckypaws_white.png')}
+            style={{ width: 150, height: 130, resizeMode: 'contain', marginLeft: -15, marginRight: 0 }}
+          />
+        </TouchableOpacity>
+
+        <GooeyNav
+          items={navItems}
+          particleCount={15}
+          particleDistances={[60, 8]}
+          particleR={80}
+          initialActiveIndex={0}
+          animationTime={600}
+          timeVariance={300}
+          colors={['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F']}
+          style={{
+            flex: 1,
+            marginHorizontal: 20,
+          }}
+        />
+
         <TouchableOpacity onPress={() => Linking.openURL('https://x.com/KOBUKOS_BREWERY')} activeOpacity={0.8}>
           <FontAwesome name="twitter" size={28} color="#2d3d2c" />
         </TouchableOpacity>
