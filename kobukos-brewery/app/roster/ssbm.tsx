@@ -11,7 +11,9 @@ export default function SSBMRoster() {
   const router = useRouter();
   
   const playerNames = [
-    'renwitdashifts'
+    'renwitdashifts',
+    'oz',
+    'Cheezboom'
   ];
 
   const getEncodedRoute = (name: string) => {
