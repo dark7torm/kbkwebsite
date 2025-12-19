@@ -30,7 +30,7 @@ export default function AppLayout() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#f4f0e0' }}>
+    <View style={{ flex: 1, backgroundColor: '#f4f0e0', zIndex: 1}}>
       {/* Custom top nav bar */}
       <Animated.View style={[styles.header, { opacity: headerOpacity }]}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1000,
+    zIndex: 0,
     backgroundColor: 'transparent'
   },
   contentContainer: {
