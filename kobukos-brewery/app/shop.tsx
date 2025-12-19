@@ -9,7 +9,7 @@ export default function ShopScreen() {
   const router = useRouter();
   return (
     <ThemedView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'f4f0e0'}}>
-      <ThemedText type="title">Shop Screen</ThemedText>
+      <ThemedText type="title">Coming Soon...</ThemedText>
       <ScrollView horizontal = {true} style={{ width: '100%', padding: 16, backgroundColor: '#f4f0e0' }}>
         <Image source={{ uri: '' }}  />
         <Image source={{ uri: '' }} />

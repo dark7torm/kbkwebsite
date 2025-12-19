@@ -3,10 +3,9 @@ import { usePathname } from 'expo-router';
 import { Image } from 'expo-image';
 import { StyleSheet, TouchableOpacity, View, Linking, Animated } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { FontAwesome } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+
 
 export default function AppLayout() {
   const router = useRouter();
@@ -30,7 +29,7 @@ export default function AppLayout() {
   };
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#f4f0e0' }}>
+    <View style={{ flex: 1, backgroundColor: '#f4f0e0', zIndex: 1}}>
       {/* Custom top nav bar */}
       <Animated.View style={[styles.header, { opacity: headerOpacity }]}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -66,10 +65,7 @@ export default function AppLayout() {
                   paddingVertical: 12,
                   paddingHorizontal: 16
                 }}
-                dropdownTextHighlightStyle={{ 
-                  color: '#e0cba8',
-                  backgroundColor: '#2d3d2c'
-                }}
+                
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/shop')}>
@@ -84,7 +80,7 @@ export default function AppLayout() {
             <TouchableOpacity onPress={() => router.navigate('/')}>
               <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
+            <TouchableOpacity onPress={() => router.navigate('/about_us')}>
               <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>About Us</ThemedText>
             </TouchableOpacity>
           </View>
@@ -123,7 +119,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 1000,
+    zIndex: 0,
     backgroundColor: 'transparent'
   },
   contentContainer: {

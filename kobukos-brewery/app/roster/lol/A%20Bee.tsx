@@ -43,13 +43,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: '100%',
-        backgroundColor: '#8da68c',
+        backgroundColor: 'transparent',
     },
     blogContent: {
         flex: 1,
         paddingHorizontal: 32,
         paddingVertical: 24,
-        backgroundColor: '#8da68c',
+        backgroundColor: 'transparent',
     },
     blogContentInner: {
         paddingBottom: 300,
@@ -83,9 +83,9 @@ const styles = StyleSheet.create({
     sidebar: {
         width: SIDEBAR_WIDTH,
         height: '100%',
-        backgroundColor: '#697e68ff',
+        backgroundColor: 'transparent',
         borderLeftWidth: 1,
-        borderLeftColor: '#697e68ff',
+        borderLeftColor: 'transparent',
         padding: 0,
         alignItems: 'center',
     },

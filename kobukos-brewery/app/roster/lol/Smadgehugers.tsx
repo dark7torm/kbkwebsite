@@ -32,7 +32,7 @@ export default function Smadgehugers() {
             </ScrollView>
             {/* Sidebar for Twitter embed */}
             <View style={styles.sidebar}>
-                <Text style={styles.sidebarTitle}>Tweets from Smadgehugers</Text>
+                <Text style={styles.sidebarTitle}></Text>
                 <Tweet id="1896326736272658524" />
                 <Tweet id="1896389921059066287" />
             </View>
@@ -46,13 +46,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: '100%',
-        backgroundColor: '#8da68c',
+        backgroundColor: 'transparent',
     },
     blogContent: {
         flex: 1,
         paddingHorizontal: 32,
         paddingVertical: 24,
-        backgroundColor: '#8da68c',
+        backgroundColor: 'transparent',
     },
     blogContentInner: {
         paddingBottom: 300,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto',
         marginBottom: 8,
         color: '#2d3d2c',
-        textAlign: 'center',
+        // textAlign: 'center',
     },
     subtitle: {
         fontSize: 20,
@@ -85,9 +85,10 @@ const styles = StyleSheet.create({
     },
     sidebar: {
         width: SIDEBAR_WIDTH,
-        backgroundColor: '#697e68ff',
+        height: '100%',
+        backgroundColor: 'transparent',
         borderLeftWidth: 1,
-        borderLeftColor: '#697e68ff',
+        borderLeftColor: 'transparent',
         padding: 0,
         alignItems: 'center',
     },

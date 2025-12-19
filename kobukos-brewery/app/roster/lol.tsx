@@ -3,6 +3,39 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
+import CountryFlag from 'react-native-country-flag';
+
+
+export default function LolRoster() {
+  const router = useRouter();
+  const playerRoles = [
+    'Top',
+    'Jungle',
+    'Mid',
+    'Bot',
+    'Support',
+  ];
+  const imageSources = [
+    require('@/assets/images/players/Jisung.png'),
+    require('@/assets/images/players/MunchyTheMonster.png'),
+    require('@/assets/images/players/PAPA.png'),
+    require('@/assets/images/players/danxiaogu.png'),
+    require('@/assets/images/players/ABee.png'),
+  ];
+  const playerFlags = [
+    'kr',
+    'cn',
+    'gr',
+    'kr',
+    'tw',
+  ];
+  const playerNames = [
+    'Jisung',
+    'MunchyTheMonster',
+    'PAPA',
+    'dan xiao gu',
+    'A Bee',
+  ];
 
 const managementRoles = [
   'Coach',
@@ -12,23 +45,14 @@ const managementNames = [
   'renwitdashifts',
   'Smadgehugers',
 ];
-
-export default function LolRoster() {
-  const router = useRouter();
-  const playerRoles = [
-    'Toplane',
-    'Jungle',
-    'Mid',
-    'Bot',
-    'Support',
-  ];
-  const playerNames = [
-    'Jisung',
-    'MunchyTheMonster',
-    'PAPA',
-    'dan xiao gu',
-    'A Bee',
-  ];
+const managementFlags = [
+  'jp',
+  'kr',
+]
+const managementImages = [
+  require('@/assets/images/players/renwitdashifts.png'),
+  require('@/assets/images/players/Smadgehugers.png'),
+]
 
   const getEncodedRoute = (name: string) => {
     return `/roster/lol/${encodeURIComponent(name)}`;
@@ -57,17 +81,18 @@ export default function LolRoster() {
                     <ThemedText style={styles.role}>
                       {playerRoles[idx]}
                     </ThemedText>
+                    <CountryFlag style={{ marginBottom: 6 }} isoCode={playerFlags[idx]} size={15} />
                     <ThemedText style={styles.playerName}>
                       {name}
                     </ThemedText>
                   </View>
                   {/* Placeholder for player image */}
                   <View style={styles.imageContainer}>
-                    {/* <Image
-                      source={require(`@/assets/images/players/${name}.png`)}
+                    <Image
+                      source={imageSources[idx]}
                       style={styles.playerImage}
                       contentFit="cover"
-                    /> */}
+                    />
                   </View>
                 </View>
               </LinearGradient>
@@ -81,7 +106,7 @@ export default function LolRoster() {
               key={name} 
               style={styles.playerCard} 
               activeOpacity={0.7} 
-              onPress={() => router.push(`/roster/lol/${name}` as any)}
+              onPress={() => router.push(getEncodedRoute(name) as any)}
             >
               <LinearGradient
                 colors={['#71906F', '#6c9969ff']}
@@ -94,16 +119,18 @@ export default function LolRoster() {
                     <ThemedText style={styles.role}>
                       {managementRoles[idx]}
                     </ThemedText>
+                    <CountryFlag style={{ marginBottom: 6 }} isoCode={managementFlags[idx]} size={15} />
                     <ThemedText style={styles.playerName}>
                       {name}
                     </ThemedText>
                   </View>
+                  {/* Placeholder for player image */}
                   <View style={styles.imageContainer}>
-                    {/* <Image
-                      source={require(`@/assets/images/staff/${name}.png`)}
+                    <Image
+                      source={managementImages[idx]}
                       style={styles.playerImage}
                       contentFit="cover"
-                    /> */}
+                    />
                   </View>
                 </View>
               </LinearGradient>
@@ -187,14 +214,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   imageContainer: {
-    width: 100,
+    width: 80,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   playerImage: {
     width: '100%',
-    height: '100%',
+    height: '125%',
     borderRadius: 4,
   },
   playerRole: {
@@ -207,7 +234,7 @@ const styles = StyleSheet.create({
   nameButton: {
     marginBottom: 12,
     borderRadius: 6,
-    paddingVertical: 8,
+    paddingVertical: 12,
     paddingHorizontal: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
