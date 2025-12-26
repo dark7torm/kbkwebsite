@@ -1,7 +1,7 @@
 import { Slot, useRouter } from 'expo-router';
 import { usePathname } from 'expo-router';
 import { Image } from 'expo-image';
-import { StyleSheet, TouchableOpacity, View, Linking, Animated } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Linking, ScrollView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { FontAwesome } from '@expo/vector-icons';
@@ -11,13 +11,6 @@ export default function AppLayout() {
   const router = useRouter();
   const pathname = usePathname();
   const isRosterPage = pathname?.startsWith('/roster');
-  const scrollY = new Animated.Value(0);
-
-  const headerOpacity = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
 
   const gameRoutes: { [key: string]: string } = {
     'League Of Legends': "/roster/lol",
@@ -31,15 +24,16 @@ export default function AppLayout() {
   return (
     <View style={{ flex: 1, backgroundColor: '#f4f0e0', zIndex: 1}}>
       {/* Custom top nav bar */}
-      <Animated.View style={[styles.header, { opacity: headerOpacity }]}>
+      <View style={styles.header}>
+        <View style={[StyleSheet.absoluteFill, { backgroundColor: '#f4f0e0' }]} />
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <TouchableOpacity onPress={() => router.push('/')} activeOpacity={0.8}>
             <Image
               source={require('@/assets/images/luckypaws_green.png')}
-              style={{ width: 150, height: 130, resizeMode: 'contain', marginLeft: -15, marginRight: 0 }}
+              style={{ width: 75, height: 50, resizeMode: 'contain', marginLeft: -8, marginRight: 0 }}
             />
           </TouchableOpacity>
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 36 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 18 }}>
             <TouchableOpacity>
               <ModalDropdown
                 defaultValue='Roster'
@@ -47,11 +41,11 @@ export default function AppLayout() {
                 onSelect={handleSelect}
                 showsVerticalScrollIndicator={false}
                 renderButtonText={() => 'Roster'}
-                textStyle={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}
+                textStyle={{ color: '#2d3d2c', fontSize: 16, fontFamily: 'System', fontWeight: '400' }}
                 dropdownStyle={{ 
                   width: 300, 
                   height: 'auto', 
-                  backgroundColor: 'transparent', 
+                  backgroundColor: '#f4f0e0', 
                   borderRadius: 8,
                   marginTop: 8,
                   borderWidth: 1,
@@ -59,48 +53,43 @@ export default function AppLayout() {
                 }}
                 dropdownTextStyle={{ 
                   color: '#2d3d2c', 
-                  fontSize: 20, 
+                  fontSize: 14, 
                   fontFamily: 'System',
                   backgroundColor: 'transparent',
-                  paddingVertical: 12,
-                  paddingHorizontal: 16
+                  paddingVertical: 8,
+                  paddingHorizontal: 12
                 }}
                 
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/shop')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Shop</ThemedText>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 16, fontFamily: 'System', fontWeight: '400' }}>Shop</ThemedText>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Games</ThemedText>
+            <TouchableOpacity onPress={() => router.navigate('/calendar') }>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 16, fontFamily: 'System', fontWeight: '400' }}>Calendar</ThemedText>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Calendar</ThemedText>
+            <TouchableOpacity onPress={() => router.navigate('/art_museum') }>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 16, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>Kobuko Art Museum</ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/about_us')}>
-              <ThemedText style={{ color: '#2d3d2c', fontSize: 24, fontFamily: 'System', fontWeight: '400' }}>About Us</ThemedText>
+            <TouchableOpacity onPress={() => router.navigate('/about_us') }>
+              <ThemedText style={{ color: '#2d3d2c', fontSize: 16, fontFamily: 'System', fontWeight: '400' }}>About Us</ThemedText>
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity onPress={() => Linking.openURL('https://x.com/KOBUKOS_BREWERY')} activeOpacity={0.8}>
-          <FontAwesome name="twitter" size={28} color="#2d3d2c" />
-        </TouchableOpacity>
-      </Animated.View>
+        <View style={styles.headerRight}>
+          <TouchableOpacity onPress={() => Linking.openURL('https://x.com/KOBUKOS_BREWERY')} activeOpacity={0.8}>
+            <FontAwesome name="twitter" size={18} color="#2d3d2c" />
+          </TouchableOpacity>
+        </View>
+      </View>
       
       {/* Page content wrapper with padding */}
-      <Animated.ScrollView
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: true }
-        )}
+      <ScrollView
         scrollEventThrottle={16}
         style={styles.contentContainer}
       >
         <Slot />
-      </Animated.ScrollView>
+      </ScrollView>
     </View>
   );
 }
@@ -108,25 +97,30 @@ export default function AppLayout() {
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: 100,
+    height: 50,
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 0,
-    paddingRight: 24,
+    paddingRight: 12,
     paddingTop: 0,
     justifyContent: 'space-between',
     position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
-    zIndex: 0,
+    zIndex: 1000,
     backgroundColor: 'transparent'
   },
   contentContainer: {
     flex: 1,
-    marginTop: 100, // This matches the header height
+    marginTop: 50, // This matches the header height
     width: '100%',
     height: '100%',
+  },
+  headerRight: {
+    zIndex: 2,
+    position: 'relative',
+    paddingRight: 12,
   },
 });
 
