@@ -51,25 +51,45 @@ const images2 = [
 
 
 export default function about_us() {
-  const scrollRef = useRef<ScrollView | null>(null);
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const currentIndex = useRef(0);
+  const scrollRef1 = useRef<ScrollView | null>(null);
+  const scrollX1 = useRef(new Animated.Value(0)).current;
+  const currentIndex1 = useRef(0);
+
+  const scrollRef2 = useRef<ScrollView | null>(null);
+  const scrollX2 = useRef(new Animated.Value(0)).current;
+  const currentIndex2 = useRef(0);
 
   useEffect(() => {
-    const id = scrollX.addListener(({ value }) => {
-      currentIndex.current = Math.round(value / windowWidth);
+    const id1 = scrollX1.addListener(({ value }) => {
+      currentIndex1.current = Math.round(value / windowWidth);
     });
 
-    const interval = setInterval(() => {
-      const next = (currentIndex.current + 1) % images.length;
-      scrollRef.current?.scrollTo({ x: next * windowWidth, animated: true });
+    const interval1 = setInterval(() => {
+      const next = (currentIndex1.current + 1) % images2.length;
+      scrollRef1.current?.scrollTo({ x: next * windowWidth, animated: true });
     }, 3000);
 
     return () => {
-      scrollX.removeListener(id);
-      clearInterval(interval);
+      scrollX1.removeListener(id1);
+      clearInterval(interval1);
     };
-  }, [scrollX]);
+  }, [scrollX1]);
+
+  useEffect(() => {
+    const id2 = scrollX2.addListener(({ value }) => {
+      currentIndex2.current = Math.round(value / windowWidth);
+    });
+
+    const interval2 = setInterval(() => {
+      const next = (currentIndex2.current + 1) % images.length;
+      scrollRef2.current?.scrollTo({ x: next * windowWidth, animated: true });
+    }, 3000);
+
+    return () => {
+      scrollX2.removeListener(id2);
+      clearInterval(interval2);
+    };
+  }, [scrollX2]);
 
   return (
     <View style={styles.contentSection}>
@@ -97,9 +117,9 @@ export default function about_us() {
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ paddingHorizontal: 16 }}
-            ref={scrollRef}
+            ref={scrollRef1}
             onScroll={Animated.event(
-              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              [{ nativeEvent: { contentOffset: { x: scrollX1 } } }],
               { useNativeDriver: false }
             )}
             scrollEventThrottle={16}
@@ -112,10 +132,10 @@ export default function about_us() {
           </ScrollView>
 
           <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 8 }}>
-            {images.map((_, i) => {
+            {images2.map((_, i) => {
               const inputRange = [(i - 1) * windowWidth, i * windowWidth, (i + 1) * windowWidth];
-              const opacity = scrollX.interpolate({ inputRange, outputRange: [0.4, 1, 0.4], extrapolate: 'clamp' });
-              const scale = scrollX.interpolate({ inputRange, outputRange: [0.85, 1.2, 0.85], extrapolate: 'clamp' });
+              const opacity = scrollX1.interpolate({ inputRange, outputRange: [0.4, 1, 0.4], extrapolate: 'clamp' });
+              const scale = scrollX1.interpolate({ inputRange, outputRange: [0.85, 1.2, 0.85], extrapolate: 'clamp' });
               return (
                 <Animated.View
                   key={i}
@@ -144,9 +164,9 @@ export default function about_us() {
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ paddingHorizontal: 16 }}
-            ref={scrollRef}
+            ref={scrollRef2}
             onScroll={Animated.event(
-              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              [{ nativeEvent: { contentOffset: { x: scrollX2 } } }],
               { useNativeDriver: false }
             )}
             scrollEventThrottle={16}
@@ -161,8 +181,8 @@ export default function about_us() {
           <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 8 }}>
             {images.map((_, i) => {
               const inputRange = [(i - 1) * windowWidth, i * windowWidth, (i + 1) * windowWidth];
-              const opacity = scrollX.interpolate({ inputRange, outputRange: [0.4, 1, 0.4], extrapolate: 'clamp' });
-              const scale = scrollX.interpolate({ inputRange, outputRange: [0.85, 1.2, 0.85], extrapolate: 'clamp' });
+              const opacity = scrollX2.interpolate({ inputRange, outputRange: [0.4, 1, 0.4], extrapolate: 'clamp' });
+              const scale = scrollX2.interpolate({ inputRange, outputRange: [0.85, 1.2, 0.85], extrapolate: 'clamp' });
               return (
                 <Animated.View
                   key={i}
