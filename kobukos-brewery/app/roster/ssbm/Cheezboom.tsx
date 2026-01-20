@@ -34,9 +34,7 @@ export default function renwitdashifts() {
             </ScrollView>
             {/* Sidebar for Twitter embed */}
             <View style={styles.sidebar}>
-                    <View style={{ width: 400, marginLeft: 32, zIndex: 10, position: 'relative' }}>
-                        <Tweet id="1890884734294565190" />
-                    </View>
+                    
             </View>
         </View>
     );

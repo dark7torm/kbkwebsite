@@ -62,7 +62,7 @@ export default function AppLayout() {
                 
               />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.navigate('/shop')}>
+            <TouchableOpacity onPress={() => router.navigate('/shop') }>
               <ThemedText style={{ color: '#2d3d2c', fontSize: 16, fontFamily: 'System', fontWeight: '400' }}>Shop</ThemedText>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => router.navigate('/calendar') }>

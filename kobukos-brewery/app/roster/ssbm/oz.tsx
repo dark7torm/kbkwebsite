@@ -11,11 +11,11 @@ export default function renwitdashifts() {
         <View style={styles.container}>
             {/* Main blog content */}
             <ScrollView style={styles.blogContent} contentContainerStyle={styles.blogContentInner}>
-                <Text style={styles.title}>renwitdashifts</Text>
+                <Text style={styles.title}>oz</Text>
                 <View style={styles.divider} />
-                <Text style={styles.subtitle}>Coach, Player, Shiftlord </Text>
+                <Text style={styles.subtitle}>New England's Favorite Chinese Falcon</Text>
                 <Text style={styles.paragraph}>
-                    The shiftiest player on the team, ren is known to be the wildcard on the roster.
+                    
                 </Text>
                 <Text style={styles.paragraph}>
                     Whether it was drafting the perfect counter to the enemies or filling in with his godlike Ezreal, 
@@ -34,9 +34,7 @@ export default function renwitdashifts() {
             </ScrollView>
             {/* Sidebar for Twitter embed */}
             <View style={styles.sidebar}>
-                    <View style={{ width: 400, marginLeft: 32, zIndex: 10, position: 'relative' }}>
-                        <Tweet id="1890884734294565190" />
-                    </View>
+                    
             </View>
         </View>
     );
