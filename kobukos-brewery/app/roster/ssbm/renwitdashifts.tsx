@@ -9,33 +9,28 @@ export default function renwitdashifts() {
         <View style={styles.container}>
             {/* Main blog content */}
             <ScrollView style={styles.blogContent} contentContainerStyle={styles.blogContentInner}>
-                <Text style={styles.title}>renwitdashifts</Text>
+                <Text style={styles.title}>ren</Text>
                 <View style={styles.divider} />
-                <Text style={styles.subtitle}>Coach, Player, Shiftlord </Text>
+                <Text style={styles.subtitle}>Shiftiest Falco</Text>
                 <Text style={styles.paragraph}>
-                    The shiftiest player on the team, ren is known to be the wildcard on the roster.
+                    "The way he coaches AND plays is so shifty"
                 </Text>
                 <Text style={styles.paragraph}>
-                    Whether it was drafting the perfect counter to the enemies or filling in with his godlike Ezreal, 
-                    renwitdashifts is the brains of the operation here at Kobuko's Brewery.
-                    Known to outperform KBK's toplaner Jisung in solo queue, ren shows that he is a vital piece of the team
-                    both on and off the Rift. Perfect draft reads, counterpicks, and a deep understanding of the game make
-                    this team's head coach in contention for the best in NACL OQs. While OQs are off season, in shifty fashion, ren
-                    competes in Super Smash Bros. Melee, where he is Boston's shiftiest Falco and member of the decorated duo ShiftBoom,
-                    alongside fellow Boston smasher Cheezboom. 
+                    Kobuko's Brewery's very own renwitdashifts is the best half Japanese half White Falco
+                    main who was born in Japan and runs Northeastern's weekly tournament Sconefest. When he's not
+                    busy complaining about how terrible Falco is, ren is likely getting his ass beat by oz and shmeeli on
+                    netplay. Calling his transition from head coach to melee competitor unprecedented would be an understatement.
+                    Despite his lesser involvement with the league team nowadays, ren still shows off his prestine coaching
+                    style with fellow teammate Jisung's Hinge account, recording 46 "good shots" and 35 denials on the season.
+
 
                 </Text>
-                <Text style={styles.paragraph}>
-                    In a world full of shiftless players, renwitdashifts stands
-                    alone at the top.
-                </Text>
+                
             </ScrollView>
-            {/* Sidebar for Twitter embed */}
             <View style={styles.sidebar}>
-                    <View style={{ width: 400, marginLeft: 32, zIndex: 10, position: 'relative' }}>
-                        <Tweet id="1890884734294565190" />
-                    </View>
+                                
             </View>
+            
         </View>
     );
 }
